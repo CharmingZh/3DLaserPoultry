@@ -709,7 +709,7 @@
         <!-- Detail Carousel -->
         <div id="detail-carousel" class="detail-carousel">
             <div class="carousel-header">
-                <h3>3D Reconstruction Differences between Blue/Red Laser.</h3>
+                <h3>3D Reconstruction: Blue vs Red Laser Comparison</h3>
                 <div class="carousel-controls">
                     <button class="carousel-btn" id="detailPrev">◀ Previous</button>
                     <span class="carousel-indicator">
@@ -719,32 +719,44 @@
                 </div>
             </div>
 
-            <!-- Slide 1: Hardware Components -->
+            <!-- Slide 1: TCB Comparison -->
             <div class="carousel-slide active">
-                <h4 class="slide-title">TCB</h4>
+                <h4 class="slide-title">Trapezoidal Calibration Block (TCB) - 3D Reconstruction Comparison</h4>
                 <div class="image-grid">
                     <div class="image-item">
-                        <img src="./src/detail_plot/red_vs_blue/subplot_1.png" alt="Laser Setup">
-                        <p class="image-caption">Blue Line Laser</p>
+                        <img src="./src/detail_plot/red_vs_blue/subplot_1.png" alt="Blue Laser TCB">
+                        <p class="image-caption">
+                            <strong>Blue Line Laser (450nm)</strong><br>
+                            Superior depth resolution with minimal noise and clear edge
+                        </p>
                     </div>
                     <div class="image-item">
-                        <img src="./src/detail_plot/red_vs_blue/subplot_2.png" alt="Camera Configuration">
-                        <p class="image-caption">Red Line Laser</p>
+                        <img src="./src/detail_plot/red_vs_blue/subplot_2.png" alt="Red Laser TCB">
+                        <p class="image-caption">
+                            <strong>Red Line Laser (660nm)</strong><br>
+                            Higher noise levels and reduced accuracy in depth measurement
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 2: Processing Pipeline -->
+            <!-- Slide 2: Chicken Breast Comparison -->
             <div class="carousel-slide">
-                <h4 class="slide-title">Chicken Breast Fillet Sample</h4>
+                <h4 class="slide-title">Chicken Breast Fillet - Surface Comparison</h4>
                 <div class="image-grid">
                     <div class="image-item">
-                        <img src="./src/detail_plot/red_vs_blue/subplot_3.png" alt="Laser Line Detection">
-                        <p class="image-caption">Blue Line Laser</p>
+                        <img src="./src/detail_plot/red_vs_blue/subplot_3.png" alt="Blue Laser Fillet">
+                        <p class="image-caption">
+                            <strong>Blue Line Laser (450nm)</strong><br>
+                            Clear surface features for WB detection algorithms
+                        </p>
                     </div>
                     <div class="image-item">
-                        <img src="./src/detail_plot/red_vs_blue/subplot_4.png" alt="Raw Point Cloud">
-                        <p class="image-caption">Red Line Laser</p>
+                        <img src="./src/detail_plot/red_vs_blue/subplot_4.png" alt="Red Laser Fillet">
+                        <p class="image-caption">
+                            <strong>Red Line Laser (660nm)</strong><br>
+                            Reduced surface detail visibility and increaced noise due to tissue penetration effects
+                        </p>
                     </div>
                 </div>
             </div>
@@ -756,73 +768,8 @@
             </div>
         </div>
 
-        <!-- Table 1 -->
-        <div class="table-container">
-            <table>
-                <caption>Table 1 · Reconstruction Performance for a Trapezoidal Calibration Block (TCB)</caption>
-                <thead>
-                <tr>
-                    <th rowspan="2">Conveyor speed</th>
-                    <th colspan="3">Mean Absolute Error (MAE, mm)</th>
-                    <th colspan="3">Mean Absolute Percentage Error (MAPE, %)</th>
-                    <th rowspan="2">Density (PTS/cm<sup>2</sup>)</th>
-                </tr>
-                <tr>
-                    <th>x-axis</th>
-                    <th>y-axis</th>
-                    <th>z-axis</th>
-                    <th>x-axis</th>
-                    <th>y-axis</th>
-                    <th>z-axis</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>5 cm/s</td>
-                    <td>1.58</td>
-                    <td>0.52</td>
-                    <td>0.29</td>
-                    <td>1.50</td>
-                    <td>0.68</td>
-                    <td>0.87</td>
-                    <td>82.7</td>
-                </tr>
-                <tr>
-                    <td>10 cm/s</td>
-                    <td>1.75</td>
-                    <td>3.44</td>
-                    <td>0.73</td>
-                    <td>1.66</td>
-                    <td>4.52</td>
-                    <td>2.21</td>
-                    <td>46.6</td>
-                </tr>
-                <tr>
-                    <td>15 cm/s</td>
-                    <td>2.13</td>
-                    <td>5.30</td>
-                    <td>2.56</td>
-                    <td>2.03</td>
-                    <td>6.96</td>
-                    <td>7.70</td>
-                    <td>31.0</td>
-                </tr>
-                <tr style="font-weight: 600; background: var(--bg-light);">
-                    <td><em>Average</em></td>
-                    <td>1.82</td>
-                    <td>3.09</td>
-                    <td>1.19</td>
-                    <td>1.73</td>
-                    <td>4.05</td>
-                    <td>3.59</td>
-                    <td>53.4</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
         <style>
-            /* Detail Carousel Styles */
+            /* Enhanced Detail Carousel Styles */
             .detail-carousel {
                 background: var(--bg-card);
                 border-radius: 16px;
@@ -836,6 +783,8 @@
                 justify-content: space-between;
                 align-items: center;
                 margin-bottom: 30px;
+                flex-wrap: wrap;
+                gap: 20px;
             }
 
             .carousel-header h3 {
@@ -886,12 +835,14 @@
                 color: var(--text-primary);
                 margin-bottom: 25px;
                 text-align: center;
+                font-weight: 600;
             }
 
             .image-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
+                align-items: start;
             }
 
             .image-item {
@@ -900,31 +851,43 @@
                 overflow: hidden;
                 transition: all 0.3s ease;
                 cursor: pointer;
+                border: 1px solid var(--border-color);
             }
 
             .image-item:hover {
                 transform: translateY(-5px);
                 box-shadow: var(--shadow-lg);
+                border-color: var(--primary-color);
             }
 
             .image-item img {
                 width: 100%;
-                height: 250px;
-                object-fit: cover;
+                height: auto;
+                min-height: 200px;
+                max-height: 400px;
+                object-fit: contain;
+                background: #f8f9fa;
                 transition: transform 0.3s ease;
             }
 
             .image-item:hover img {
-                transform: scale(1.05);
+                transform: scale(1.02);
             }
 
             .image-caption {
                 padding: 20px;
                 font-size: 0.95rem;
                 color: var(--text-secondary);
-                line-height: 1.5;
+                line-height: 1.6;
                 text-align: center;
                 background: var(--bg-light);
+            }
+
+            .image-caption strong {
+                color: var(--text-primary);
+                display: block;
+                margin-bottom: 8px;
+                font-size: 1rem;
             }
 
             .carousel-dots {
@@ -946,6 +909,10 @@
             .dot.active {
                 background: var(--primary-color);
                 transform: scale(1.2);
+            }
+
+            .dot:hover {
+                background: var(--text-secondary);
             }
 
             @keyframes slideIn {
@@ -976,6 +943,7 @@
                 max-height: 90vh;
                 border-radius: 12px;
                 box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+                object-fit: contain;
             }
 
             #detailModal .modal-caption {
@@ -990,6 +958,7 @@
                 font-size: 0.95rem;
                 text-align: center;
                 max-width: 80%;
+                backdrop-filter: blur(10px);
             }
 
             #detailClose {
@@ -1025,9 +994,19 @@
                     gap: 20px;
                 }
 
+                .carousel-header h3 {
+                    font-size: 1.25rem;
+                    text-align: center;
+                }
+
                 .carousel-controls {
                     flex-wrap: wrap;
                     justify-content: center;
+                }
+
+                .carousel-btn {
+                    padding: 8px 16px;
+                    font-size: 0.9rem;
                 }
 
                 .image-grid {
@@ -1036,7 +1015,8 @@
                 }
 
                 .image-item img {
-                    height: 200px;
+                    min-height: 150px;
+                    max-height: 300px;
                 }
             }
         </style>
@@ -1104,10 +1084,10 @@
                 document.querySelectorAll('#detail-carousel .image-item').forEach(item => {
                     item.addEventListener('click', function() {
                         const img = this.querySelector('img');
-                        const caption = this.querySelector('.image-caption').textContent;
+                        const caption = this.querySelector('.image-caption').innerHTML;
 
                         detailModalImg.src = img.src;
-                        detailModalCaption.textContent = caption;
+                        detailModalCaption.innerHTML = caption;
                         detailModal.style.display = 'flex';
                         stopAutoPlay();
                     });
@@ -1135,50 +1115,416 @@
             })();
         </script>
 
+        <!-- Speed Comparison Carousel -->
+        <div id="speed-carousel" class="detail-carousel">
+            <div class="carousel-header">
+                <h3>3D Reconstruction Quality at Different Conveyor Speeds</h3>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="speedPrev">◀ Previous</button>
+                    <span class="carousel-indicator">
+                            <span id="speedCurrentSlide">1</span> / <span id="speedTotalSlides">3</span>
+                        </span>
+                    <button class="carousel-btn" id="speedNext">Next ▶</button>
+                </div>
+            </div>
 
-        <!--        &lt;!&ndash; Enhanced Carousel &ndash;&gt;-->
-        <!--        <div id="wb-carousel">-->
-        <!--            <div class="wb-grid-head">-->
-        <!--                <div class="wb-col-head">Low Speed (5 cm/s)</div>-->
-        <!--                <div class="wb-col-head">Medium Speed (10 cm/s)</div>-->
-        <!--                <div class="wb-col-head">High Speed (15 cm/s)</div>-->
-        <!--            </div>-->
+            <!-- Slide 1: TCB -->
+            <div class="carousel-slide active">
+                <h4 class="slide-title">Trapezoidal Calibration Block (TCB) - Speed Impact Analysis</h4>
+                <div class="speed-grid">
+                    <div class="speed-item">
+                        <img src="./src/detail_plot/speed/subplot_01.png" alt="TCB 5cm/s">
+                        <p class="speed-caption">
+                            <strong>Low Speed (5 cm/s)</strong>
+                        </p>
+                    </div>
+                    <div class="speed-item">
+                        <img src="./src/detail_plot/speed/subplot_02.png" alt="TCB 10cm/s">
+                        <p class="speed-caption">
+                            <strong>Medium Speed (10 cm/s)</strong>
+                        </p>
+                    </div>
+                    <div class="speed-item">
+                        <img src="./src/detail_plot/speed/subplot_03.png" alt="TCB 15cm/s">
+                        <p class="speed-caption">
+                            <strong>High Speed (15 cm/s)</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-        <!--            <div class="wb-controls">-->
-        <!--                <button id="prevGroup">▲ Previous</button>-->
-        <!--                <button id="nextGroup">▼ Next</button>-->
-        <!--            </div>-->
+            <!-- Slide 2: Normal Sample -->
+            <div class="carousel-slide">
+                <h4 class="slide-title">Normal Chicken Breast Fillet - Surface Reconstruction</h4>
+                <div class="speed-grid">
+                    <div class="speed-item">
+                        <img src="./src/detail_plot/speed/subplot_04.png" alt="Normal 5cm/s">
+                        <p class="speed-caption">
+                            <strong>Low Speed (5 cm/s)</strong>
+                        </p>
+                    </div>
+                    <div class="speed-item">
+                        <img src="./src/detail_plot/speed/subplot_05.png" alt="Normal 10cm/s">
+                        <p class="speed-caption">
+                            <strong>Medium Speed (10 cm/s)</strong>
+                        </p>
+                    </div>
+                    <div class="speed-item">
+                        <img src="./src/detail_plot/speed/subplot_06.png" alt="Normal 15cm/s">
+                        <p class="speed-caption">
+                            <strong>High Speed (15 cm/s)</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-        <!--            &lt;!&ndash; Group 1 &ndash;&gt;-->
-        <!--            <div class="wb-row-group active">-->
-        <!--                <h3 class="wb-row-title">Trapezoidal Calibration Block (TCB)</h3>-->
-        <!--                <img src="./src/detail_plot/speed/subplot_01.png" alt="TCB Low Speed">-->
-        <!--                <img src="./src/detail_plot/speed/subplot_02.png" alt="TCB Medium Speed">-->
-        <!--                <img src="./src/detail_plot/speed/subplot_03.png" alt="TCB High Speed">-->
-        <!--            </div>-->
+            <!-- Slide 3: WB Sample -->
+            <div class="carousel-slide">
+                <h4 class="slide-title">WB-Affected Sample - Characteristic Ridge Detection</h4>
+                <div class="speed-grid">
+                    <div class="speed-item">
+                        <img src="./src/detail_plot/speed/subplot_07.png" alt="WB 5cm/s">
+                        <p class="speed-caption">
+                            <strong>Low Speed (5 cm/s)</strong>
+                        </p>
+                    </div>
+                    <div class="speed-item">
+                        <img src="./src/detail_plot/speed/subplot_08.png" alt="WB 10cm/s">
+                        <p class="speed-caption">
+                            <strong>Medium Speed (10 cm/s)</strong>
+                        </p>
+                    </div>
+                    <div class="speed-item">
+                        <img src="./src/detail_plot/speed/subplot_09.png" alt="WB 15cm/s">
+                        <p class="speed-caption">
+                            <strong>High Speed (15 cm/s)</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-        <!--            &lt;!&ndash; Group 2 &ndash;&gt;-->
-        <!--            <div class="wb-row-group">-->
-        <!--                <h3 class="wb-row-title">Normal Sample</h3>-->
-        <!--                <img src="./src/detail_plot/speed/subplot_04.png" alt="Normal Low Speed">-->
-        <!--                <img src="./src/detail_plot/speed/subplot_05.png" alt="Normal Medium Speed">-->
-        <!--                <img src="./src/detail_plot/speed/subplot_06.png" alt="Normal High Speed">-->
-        <!--            </div>-->
+            <!-- Progress dots -->
+            <div class="carousel-dots">
+                <span class="speed-dot active" data-slide="0"></span>
+                <span class="speed-dot" data-slide="1"></span>
+                <span class="speed-dot" data-slide="2"></span>
+            </div>
+        </div>
 
-        <!--            &lt;!&ndash; Group 3 &ndash;&gt;-->
-        <!--            <div class="wb-row-group">-->
-        <!--                <h3 class="wb-row-title">WB-Affected Sample</h3>-->
-        <!--                <img src="./src/detail_plot/speed/subplot_07.png" alt="WB Low Speed">-->
-        <!--                <img src="./src/detail_plot/speed/subplot_08.png" alt="WB Medium Speed">-->
-        <!--                <img src="./src/detail_plot/speed/subplot_09.png" alt="WB High Speed">-->
-        <!--            </div>-->
+        <style>
+            /* Speed Carousel Specific Styles */
+            .speed-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                align-items: start;
+            }
 
-        <!--            &lt;!&ndash; Modal &ndash;&gt;-->
-        <!--            <div id="imgModal">-->
-        <!--                <span id="imgClose">&times;</span>-->
-        <!--                <img id="modalImg" src="#" alt="Enlarged view">-->
-        <!--            </div>-->
-        <!--        </div>-->
+            .speed-item {
+                background: var(--bg-light);
+                border-radius: 12px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                border: 1px solid var(--border-color);
+            }
+
+            .speed-item:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--shadow-lg);
+                border-color: var(--primary-color);
+            }
+
+            .speed-item img {
+                width: 100%;
+                height: auto;
+                min-height: 180px;
+                max-height: 300px;
+                object-fit: contain;
+                background: #f8f9fa;
+                transition: transform 0.3s ease;
+            }
+
+            .speed-item:hover img {
+                transform: scale(1.02);
+            }
+
+            .speed-caption {
+                padding: 16px;
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+                line-height: 1.5;
+                text-align: center;
+                background: var(--bg-light);
+            }
+
+            .speed-caption strong {
+                color: var(--text-primary);
+                display: block;
+                margin-bottom: 6px;
+                font-size: 0.95rem;
+            }
+
+            .speed-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: var(--border-color);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .speed-dot.active {
+                background: var(--primary-color);
+                transform: scale(1.2);
+            }
+
+            .speed-dot:hover {
+                background: var(--text-secondary);
+            }
+
+            /* Speed Modal */
+            #speedModal {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.95);
+                z-index: 1002;
+                justify-content: center;
+                align-items: center;
+                padding: 40px;
+            }
+
+            #speedModal img {
+                max-width: 90vw;
+                max-height: 90vh;
+                border-radius: 12px;
+                box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+                object-fit: contain;
+            }
+
+            #speedModal .modal-caption {
+                position: absolute;
+                bottom: 40px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+                padding: 15px 30px;
+                border-radius: 8px;
+                font-size: 0.95rem;
+                text-align: center;
+                max-width: 80%;
+                backdrop-filter: blur(10px);
+            }
+
+            #speedClose {
+                position: absolute;
+                top: 30px;
+                right: 40px;
+                font-size: 2.5rem;
+                color: white;
+                cursor: pointer;
+                background: rgba(0, 0, 0, 0.5);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s;
+            }
+
+            #speedClose:hover {
+                background: rgba(0, 0, 0, 0.8);
+                transform: rotate(90deg);
+            }
+
+            /* Responsive design for speed carousel */
+            @media (max-width: 992px) {
+                .speed-grid {
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                }
+
+                .speed-item {
+                    max-width: 500px;
+                    margin: 0 auto;
+                }
+            }
+
+            @media (max-width: 768px) {
+                #speed-carousel .carousel-header h3 {
+                    font-size: 1.2rem;
+                }
+
+                .speed-item img {
+                    min-height: 150px;
+                    max-height: 250px;
+                }
+
+                .speed-caption {
+                    padding: 12px;
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+
+        <!-- Speed Modal -->
+        <div id="speedModal">
+            <span id="speedClose">&times;</span>
+            <img id="speedModalImg" src="#" alt="Detail view">
+            <div class="modal-caption" id="speedModalCaption"></div>
+        </div>
+
+        <script>
+            // Speed Carousel functionality
+            (function() {
+                const slides = document.querySelectorAll('#speed-carousel .carousel-slide');
+                const dots = document.querySelectorAll('#speed-carousel .speed-dot');
+                const prevBtn = document.getElementById('speedPrev');
+                const nextBtn = document.getElementById('speedNext');
+                const currentSlideSpan = document.getElementById('speedCurrentSlide');
+                const totalSlidesSpan = document.getElementById('speedTotalSlides');
+
+                let currentSlide = 0;
+                totalSlidesSpan.textContent = slides.length;
+
+                function showSlide(n) {
+                    slides[currentSlide].classList.remove('active');
+                    dots[currentSlide].classList.remove('active');
+
+                    currentSlide = (n + slides.length) % slides.length;
+
+                    slides[currentSlide].classList.add('active');
+                    dots[currentSlide].classList.add('active');
+                    currentSlideSpan.textContent = currentSlide + 1;
+                }
+
+                prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+                nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => showSlide(index));
+                });
+
+                // Auto-play functionality
+                let autoPlayTimer;
+                const startAutoPlay = () => {
+                    autoPlayTimer = setInterval(() => showSlide(currentSlide + 1), 7000);
+                };
+                const stopAutoPlay = () => clearInterval(autoPlayTimer);
+
+                // Start auto-play
+                startAutoPlay();
+
+                // Pause on hover
+                const carousel = document.getElementById('speed-carousel');
+                carousel.addEventListener('mouseenter', stopAutoPlay);
+                carousel.addEventListener('mouseleave', startAutoPlay);
+
+                // Speed modal functionality
+                const speedModal = document.getElementById('speedModal');
+                const speedModalImg = document.getElementById('speedModalImg');
+                const speedModalCaption = document.getElementById('speedModalCaption');
+                const speedCloseBtn = document.getElementById('speedClose');
+
+                // Add click handlers to all images in the speed carousel
+                document.querySelectorAll('#speed-carousel .speed-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const img = this.querySelector('img');
+                        const caption = this.querySelector('.speed-caption').innerHTML;
+
+                        speedModalImg.src = img.src;
+                        speedModalCaption.innerHTML = caption;
+                        speedModal.style.display = 'flex';
+                        stopAutoPlay();
+                    });
+                });
+
+                const hideSpeedModal = () => {
+                    speedModal.style.display = 'none';
+                    startAutoPlay();
+                };
+
+                speedCloseBtn.onclick = hideSpeedModal;
+                speedModal.onclick = (e) => {
+                    if (e.target === speedModal) hideSpeedModal();
+                };
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (speedModal.style.display === 'flex') {
+                        if (e.key === 'Escape') hideSpeedModal();
+                    }
+                });
+            })();
+        </script>
+
+        <!-- Table 1 -->
+        <div class="table-container">
+            <table>
+                <caption>Table 1 · Reconstruction Performance for a Trapezoidal Calibration Block (TCB)</caption>
+                <thead>
+                <tr>
+                    <th rowspan="2">Conveyor speed</th>
+                    <th colspan="3">Mean Absolute Error (MAE, mm)</th>
+                    <th colspan="3">Mean Absolute Percentage Error (MAPE, %)</th>
+                    <th rowspan="2">Density (PTS/cm<sup>2</sup>)</th>
+                </tr>
+                <tr>
+                    <th>x-axis</th>
+                    <th>y-axis</th>
+                    <th>z-axis</th>
+                    <th>x-axis</th>
+                    <th>y-axis</th>
+                    <th>z-axis</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>5 cm/s</td>
+                    <td>1.58</td>
+                    <td>0.52</td>
+                    <td>0.29</td>
+                    <td>1.50</td>
+                    <td>0.68</td>
+                    <td>0.87</td>
+                    <td>82.7</td>
+                </tr>
+                <tr>
+                    <td>10 cm/s</td>
+                    <td>1.75</td>
+                    <td>3.44</td>
+                    <td>0.73</td>
+                    <td>1.66</td>
+                    <td>4.52</td>
+                    <td>2.21</td>
+                    <td>46.6</td>
+                </tr>
+                <tr>
+                    <td>15 cm/s</td>
+                    <td>2.13</td>
+                    <td>5.30</td>
+                    <td>2.56</td>
+                    <td>2.03</td>
+                    <td>6.96</td>
+                    <td>7.70</td>
+                    <td>31.0</td>
+                </tr>
+                <tr style="font-weight: 600; background: var(--bg-light);">
+                    <td><em>Average</em></td>
+                    <td>1.82</td>
+                    <td>3.09</td>
+                    <td>1.19</td>
+                    <td>1.73</td>
+                    <td>4.05</td>
+                    <td>3.59</td>
+                    <td>53.4</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div class="figure">
             <img src="./src/Fig_5.jpeg" alt="Side-view visualization" style="max-width: 75%;">
