@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Learning for Image Recognition - Academic Paper</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 标题部分 */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            color: #222;
+        }
+
+        .authors {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .authors a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .authors a:hover {
+            text-decoration: underline;
+        }
+
+        .affiliation {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* 按钮组 */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            border: 1px solid #ddd;
+        }
+
+        .button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .button.primary {
+            background-color: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
+
+        .button.primary:hover {
+            background-color: #0052a3;
+        }
+
+        /* 摘要部分 */
+        .abstract {
+            margin-bottom: 50px;
+        }
+
+        .abstract h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .abstract-content {
+            text-align: justify;
+            line-height: 1.8;
+            color: #444;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #0066cc;
+        }
+
+        /* 图像展示部分 */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .figure {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #fafafa;
+        }
+
+        .figure-caption {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #666;
+            text-align: justify;
+            padding: 0 20px;
+        }
+
+        /* Poster 部分 */
+        .poster-section {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .poster-preview {
+            display: inline-block;
+            max-width: 300px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #fafafa;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .poster-preview:hover {
+            transform: scale(1.02);
+        }
+
+        .poster-preview img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* BibTeX 部分 */
+        .bibtex-section {
+            margin-bottom: 50px;
+        }
+
+        .bibtex-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        .bibtex-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .bibtex-dialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .bibtex-dialog.show {
+            display: block;
+        }
+
+        .bibtex-dialog h3 {
+            margin-bottom: 15px;
+        }
+
+        .bibtex-content {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            overflow-x: auto;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /* 联系信息 */
+        .contact {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+
+        .contact a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button {
+                width: 200px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 标题部分 -->
+    <header class="header">
+        <h1>A New Laser Profiling System for Online, Real-Time Detection of Broiler Breast Fillets with Woody Breast</h1>
+        <div class="authors">
+            <a href="https://charmingzh.github.io/">Jiaming Zhang</a>,
+            <a href="https://www.yuzhenlu.com/">Yuzhen Lu</a><sup>*</sup>
+        </div>
+        <div class="affiliation">
+            <sup>1</sup>Department of Biosystems and Agricultural Engineering, Michigan State University
+        </div>
+    </header>
+
+    <!-- 按钮组 -->
+    <div class="buttons">
+        <a href="#" class="button primary">
+            📄 Paper
+        </a>
+        <a href="#" class="button">
+            💻 Code
+        </a>
+        <a href="#" class="button">
+            📎 Supplementary
+        </a>
+    </div>
+
+    <!-- 摘要 -->
+    <section class="abstract">
+        <h2>Abstract</h2>
+        <div class="abstract-content">
+            Woody breast (WB) myopathy is a muscle quality defect of poultry breast meat that causes product
+            downgrading or rejection, and significant economic losses for poultry industries worldwide.
+            Current detection of WB in poultry processing plants relies on manual palpation and visual inspection
+            , which is labour-intensive and subjective. Surface profilometry or three-dimensional (3D) vision
+            techniques that measure surface topography of objects offer a potentially useful method for WB
+            assessment and grading, since WB alters the shape of chicken breasts. This study presents an innovative,
+            custom-built 3D laser profiling system for online, real-time detection of broiler breast fillets with WB
+            through 3D reconstruction and machine learning. The system employed a line laser to scan samples at a
+            rate of 120 frames per second (fps), and with a dedicated calibrated algorithm pipeline, was capable of
+            reconstructing the shape of samples at a rate of about 107 fps. Compared to a red line laser (λ=660 nm),
+            a blue line laser (λ=450 nm) yielded better 3D reconstruction, with the z-axis (depth/height)
+            reconstruction error of 0.29, 0.73, and 2.56 mm at the conveyor speed of 5, 10, and 15 cm/s,
+            respectively; higher conveyor speeds resulted in reduced point cloud density and elevated image noise.
+            A set of 310 chicken breast fillets, manually graded by trained personnel for WB conditions,
+            was scanned under the illumination of a blue line laser at the three conveyor speeds for WB assessment.
+            Classification models were built using two approaches, i.e., support vector machine trained with the
+            hand-crafted features from the 2D projection of reconstructed shape, and deep learning through an
+            end-to-end PointNet++ trained with the 3D points. At the conveyor speed of 5 cm/s, the PointNet++
+            model attained a better overall accuracy of 88.9%; the higher speed of 10-15 cm/s resulted in slightly
+            reduced accuracy for both models. This study has demonstrated the promise of the proposed 3D laser
+            profiling system for online, high-speed WB inspection of poultry meat, which has potential for practical
+            application. The software programs of this study have been made publicly available .
+        </div>
+    </section>
+
+    <!-- 方法概览 -->
+    <section class="section">
+        <h2>方法概览 Method Overview</h2>
+        <div class="figure">
+            <img src="https://via.placeholder.com/800x400/f0f0f0/666?text=Method+Architecture+Diagram" alt="方法架构图">
+            <p class="figure-caption">
+                <strong>图 1：</strong> 我们提出的层次化特征提取网络架构。该网络包含三个主要模块：(a) 多尺度特征提取器，(b) 自适应特征融合模块，(c) 层次化分类器。通过这种设计，模型能够有效地处理不同分辨率的输入图像。
+            </p>
+        </div>
+    </section>
+
+    <!-- 实验结果 -->
+    <section class="section">
+        <h2>实验结果 Experimental Results</h2>
+        <div class="figure">
+            <img src="https://via.placeholder.com/800x300/f0f0f0/666?text=Comparison+Results" alt="对比实验结果">
+            <p class="figure-caption">
+                <strong>图 2：</strong> 在不同数据集上的性能对比。我们的方法（红色）相比于现有最先进方法展现出显著的性能提升。
+            </p>
+        </div>
+
+        <div class="figure">
+            <img src="https://via.placeholder.com/800x500/f0f0f0/666?text=Visualization+Results" alt="可视化结果">
+            <p class="figure-caption">
+                <strong>图 3：</strong> 特征可视化结果。展示了我们的模型在不同层次上学习到的特征表示。
+            </p>
+        </div>
+    </section>
+
+    <!-- 消融实验 -->
+    <section class="section">
+        <h2>消融实验 Ablation Study</h2>
+        <div class="figure">
+            <img src="https://via.placeholder.com/800x400/f0f0f0/666?text=Ablation+Study+Results" alt="消融实验结果">
+            <p class="figure-caption">
+                <strong>图 4：</strong> 消融实验结果。我们系统地分析了每个模块对最终性能的贡献。
+            </p>
+        </div>
+    </section>
+
+    <!-- Poster -->
+    <section class="poster-section section">
+        <h2>Conference Poster</h2>
+        <!-- 如果您的 PDF 文件名为 poster.pdf, 放在同级目录即可 -->
+        <iframe src="./src/AI_CONF_POSTER.pdf" width="100%" height="500" style="border:1px solid #ddd; background:#fafafa;"></iframe>
+        <p style="margin-top: 15px; color: #666;"><a href="./src/AI_CONF_POSTER.pdf" target="_blank" rel="noopener noreferrer">Download Poster PDF</a></p>
+    </section>
+
+    <!-- BibTeX -->
+    <!-- BibTeX -->
+    <section class="bibtex-section">
+        <h2>Citation</h2>
+        <pre class="bibtex-content">
+@inproceedings{zhang2024deep,
+  title={Deep Learning for High-Resolution Image Recognition: A Novel Approach Using Hierarchical Feature Extraction},
+  author={Zhang, San and Li, Si and Wang, Wu and Zhao, Liu},
+  booktitle={Proceedings of the International Conference on Computer Vision (ICCV)},
+  pages={1234--1245},
+  year={2024},
+  organization={IEEE}
+}
+        </pre>
+    </section>
+
+<!--致谢-->
+<section class="section">
+    <h2>Acknowledgements</h2>
+        <p class="figure-caption">
+            This work is supported by the <b>Michigan Alliance for Animal Agriculture (M-AAA)</b>,
+            project ID number AA-23-0029, from AgBioResearch and MSU Extension at Michigan State
+            University, in partnership with the <b>Michigan Department of Agriculture and Rural
+            Development</b>. The authors thank <b>Miller Poultry</b> (Orland, IN) for providing chicken fillets and
+            assisting in manual assessment of WB conditions in this study.
+        </p>
+
+</section>
+
+    <!-- 联系信息 -->
+    <footer class="contact">
+        <p>如有问题，请联系：<a href="mailto:author@university.edu">author@university.edu</a></p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">© 2024 计算机视觉实验室，某某大学</p>
+    </footer>
+</div>
+
+
+<script>
+    function showBibtex() {
+        document.getElementById('overlay').classList.add('show');
+        document.getElementById('bibtexDialog').classList.add('show');
+    }
+
+    function hideBibtex() {
+        document.getElementById('overlay').classList.remove('show');
+        document.getElementById('bibtexDialog').classList.remove('show');
+    }
+
+    // 点击 ESC 键关闭对话框
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            hideBibtex();
+        }
+    });
+</script>
+</body>
+</html>
