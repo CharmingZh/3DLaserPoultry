@@ -1,18 +1,16 @@
-[Project Homepage](https://charmingzh.github.io/3DLaserPoultry/)
 # A New Laser Profiling System for Online, Real-Time Detection of Broiler Breast Fillets with Woody Breast
 
 [![Paper](https://img.shields.io/badge/Paper-Under%20Review-orange)](https://github.com/your-repo/paper)
 [![Code](https://img.shields.io/badge/Code-Coming%20Soon-yellow)](https://github.com/your-repo/code)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.12%2B-blue)](https://www.python.org/)
+[![Page](https://img.shields.io/badge/项目主页%20Page-中文-blue)](https://charmingzh.github.io/3DLaserPoultry/)
+[![Page](https://img.shields.io/badge/README-中文-blue)](https://github.com/CharmingZh/3DLaserPoultry/blob/main/README_CN.md)
 
 > **Authors:** [Jiaming Zhang](https://charmingzh.github.io/), [Yuzhen Lu](https://www.yuzhenlu.com/)*  
 > **Affiliation:** Department of Biosystems and Agricultural Engineering, Michigan State University  
 > **Status:** Under review at Journal of Food Engineering  
 > **Code Availability:** Implementation will be completely released upon paper acceptance
-
-
-
 
 ## 🎯 Overview
 
@@ -210,7 +208,10 @@ Special thanks to **Miller Poultry** (Orland, IN) for providing chicken fillets 
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/MSU-Agriculture%20Food%20Sensing%20Intelligence%20Lab-green" alt="MSU Lab">
+  <a href="https://www.yuzhenlu.com/" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/MSU-Agriculture%20Food%20Sensing%20Intelligence%20Lab-green"
+       alt="MSU Lab">
+</a>
   <br>
   <i>© 2025 Agriculture Food Sensing Intelligence Lab, Michigan State University</i>
 </p>
