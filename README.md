@@ -27,7 +27,7 @@ calibration, 3D reconstruction, and classifier to conduct objective and rapid in
 
 ![System Pipeline](docs/src/3DRedering.png)
 
-Our system employs a **blue line laser (λ=450 nm)** for superior 3D reconstruction compared to traditional red lasers, achieving:
+Our system employs a **blue line laser (λ=450 nm)** for 3D reconstruction，achieving:
 - **Z-axis reconstruction error**: 0.29 mm at 5 cm/s conveyor speed
 - **Point cloud density**: 82.7 points/cm² at optimal speed
 - **Processing pipeline**: Calibration → 3D reconstruction → WB classification
