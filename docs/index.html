@@ -540,7 +540,7 @@
 <div class="container">
     <!-- Header -->
     <header class="header">
-        <h1>A New Laser Profiling System for Online, Real-Time Detection of Broiler Breast Fillets with Woody Breast</h1>
+        <h1>Proof-of-Concept Evaluation of A 3D Laser Profiling System Prototype for Real-Time Woody Breast Detection in Broiler Breast Fillets</h1>
         <div class="authors">
             <a href="https://charmingzh.github.io/">Jiaming Zhang</a>,
             <a href="https://www.yuzhenlu.com/">Yuzhen Lu</a><sup>*</sup>
@@ -567,28 +567,7 @@
     <section class="abstract">
         <h2>Abstract</h2>
         <div class="abstract-content">
-            Woody breast (WB) myopathy is a muscle quality defect of poultry breast meat that causes product
-            downgrading or rejection, and significant economic losses for poultry industries worldwide.
-            Current detection of WB in poultry processing plants relies on manual palpation and visual inspection,
-            which is labour-intensive and subjective. Surface profilometry or three-dimensional (3D) vision
-            techniques that measure surface topography of objects offer a potentially useful method for WB
-            assessment and grading, since WB alters the shape of chicken breasts. This study presents an innovative,
-            custom-built 3D laser profiling system for online, real-time detection of broiler breast fillets with WB
-            through 3D reconstruction and machine learning. The system employed a line laser to scan samples at a
-            rate of 120 frames per second (fps), and with a dedicated calibrated algorithm pipeline, was capable of
-            reconstructing the shape of samples at a rate of about 107 fps. Compared to a red line laser (λ=660 nm),
-            a blue line laser (λ=450 nm) yielded better 3D reconstruction, with the z-axis (depth/height)
-            reconstruction error of 0.29, 0.73, and 2.56 mm at the conveyor speed of 5, 10, and 15 cm/s,
-            respectively; higher conveyor speeds resulted in reduced point cloud density and elevated image noise.
-            A set of 310 chicken breast fillets, manually graded by trained personnel for WB conditions,
-            was scanned under the illumination of a blue line laser at the three conveyor speeds for WB assessment.
-            Classification models were built using two approaches, i.e., support vector machine trained with the
-            hand-crafted features from the 2D projection of reconstructed shape, and deep learning through an
-            end-to-end PointNet++ trained with the 3D points. At the conveyor speed of 5 cm/s, the PointNet++
-            model attained a better overall accuracy of 88.9%; the higher speed of 10-15 cm/s resulted in slightly
-            reduced accuracy for both models. This study has demonstrated the promise of the proposed 3D laser
-            profiling system for online, high-speed WB inspection of poultry meat, which has potential for practical
-            application. The software programs of this study have been made publicly available.
+            Woody breast (WB) myopathy is a muscle quality defect of poultry breast meat that causes product downgrading or rejection, and significant economic losses for poultry industries worldwide. Current detection of WB in poultry processing plants relies on manual palpation and visual inspection, which is labour-intensive and subjective. Surface profilometry or three-dimensional (3D) vision techniques that measure surface topography of objects offer a potentially useful method for WB assessment and grading, since WB alters the shape of chicken breasts. This study presents a proof-of-concept evaluation of an innovative, custom-built 3D laser profiling system prototype for online, real-time detection of broiler breast fillets with WB through 3D reconstruction and machine learning. The system employed a line laser to scan samples at a rate of 120 frames per second (fps), and with a dedicated calibrated algorithm pipeline, could reconstruct the shape of samples at a rate of approximately 107 fps. Compared to a red line laser (λ=660 nm), a blue line laser (λ=450 nm) yielded better 3D reconstruction, with the z-axis (depth/height) reconstruction error of 0.29, 0.73, and 2.56 mm at the conveyor speed of 5, 10, and 15 cm/s, respectively; higher conveyor speeds resulted in reduced point cloud density and elevated image noise. A set of 310 chicken breast fillets, manually graded by trained personnel for WB conditions, was scanned under the illumination of a blue line laser at the three conveyor speeds for WB assessment. Classification models were built using two approaches, i.e., support vector machine (SVM) trained with the hand-crafted features from the 2D projection of reconstructed shape, and deep learning through an end-to-end PointNet++ trained with the 3D points. At the conveyor speed of 5 cm/s, the PointNet++ model attained a better overall accuracy of 88.9%; the higher speed of 10-15 cm/s resulted in slightly reduced accuracy for both models. This study has demonstrated the promise of the proposed 3D laser profiling system for online, high-speed WB inspection of poultry meat, which has potential for practical application. The software programs of this study have been made publicly available.
         </div>
     </section>
 
