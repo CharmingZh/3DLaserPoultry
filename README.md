@@ -1,4 +1,4 @@
-# A New Laser Profiling System for Online, Real-Time Detection of Broiler Breast Fillets with Woody Breast
+# Proof-of-Concept Evaluation of A 3D Laser Profiling System Prototype for Real-Time Woody Breast Detection in Broiler Breast Fillets
 
 [![Paper](https://img.shields.io/badge/Paper-Under%20Review-orange)](https://github.com/your-repo/paper)
 [![Code](https://img.shields.io/badge/Code-Coming%20Soon-yellow)](https://github.com/your-repo/code)
